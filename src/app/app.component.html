@@ -1,1 +1,6 @@
-<app-new-transfer></app-new-transfer>
+<app-new-transfer
+  (onClickTransfer)="transfer($event)">
+</app-new-transfer>
+
+<p>Valor: {{ transferValues?.amount }}</p>
+<p>Destino: {{ transferValues?.destination }}</p>

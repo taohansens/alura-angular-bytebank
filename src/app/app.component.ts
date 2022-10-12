@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TransferClass } from './model/TransferClass';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bytebank';
+
+  transferValues: TransferClass;
+
+  transfer($event){
+    console.log($event)
+    this.transferValues = $event;
+  }
 }
