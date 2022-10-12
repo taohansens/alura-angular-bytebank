@@ -9,10 +9,10 @@ import { TransferClass } from './model/TransferClass';
 export class AppComponent {
   title = 'bytebank';
 
-  transferValues: TransferClass;
-
+  transfers: TransferClass[] = [];
   transfer($event){
-    console.log($event)
-    this.transferValues = $event;
+    const transfer = {...$event, data: new Date}
+    this.transfers.push(transfer);
+    console.log(this.transfers)
   }
 }

@@ -7,7 +7,7 @@ import { TransferClass } from '../model/TransferClass';
   styleUrls: ['./extract.component.scss']
 })
 export class ExtractComponent implements OnInit {
-  @Input() transferValues: TransferClass;
+  @Input() transfers: TransferClass[];
 
   constructor() { }
 
