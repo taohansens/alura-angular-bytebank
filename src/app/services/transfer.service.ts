@@ -1,18 +1,27 @@
+import { TransferClass } from './../model/TransferClass';
 import { Injectable } from '@angular/core';
-import { TransferClass } from '../model/TransferClass';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TransferService {
   private listTransfers: TransferClass[];
-  constructor() {
+  private url = "http://localhost:3000/transfers";
+
+  constructor(private httpClient: HttpClient) {
     this.listTransfers = [];
   }
 
   get transfers(){
     return this.listTransfers;
   }
+
+  allTransfers() {
+    return this.httpClient.get<TransferClass[]>(this.url);
+  }
+
 
   add(transfer: TransferClass){
     this.complementWithDate(transfer)

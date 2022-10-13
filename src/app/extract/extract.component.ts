@@ -8,11 +8,13 @@ import { TransferService } from '../services/transfer.service';
   styleUrls: ['./extract.component.scss']
 })
 export class ExtractComponent implements OnInit {
-  @Input() transfers: TransferClass[];
+  @Input() transfers: any;
 
   constructor(private service: TransferService) { }
 
   ngOnInit() {
-    this.transfers = this.service.transfers;
+    this.service.allTransfers().subscribe((transfers: TransferClass[]) => {
+      this.transfers = transfers;
+    });
   }
 }
