@@ -22,9 +22,9 @@ export class TransferService {
     return this.httpClient.get<TransferClass[]>(this.url);
   }
 
-  add(transfer: TransferClass){
+  add(transfer: TransferClass): Observable<TransferClass> {
     this.complementWithDate(transfer)
-    this.transfers.push(transfer)
+    return this.httpClient.post<TransferClass>(this.url, transfer);
   }
 
   private complementWithDate(transfer: TransferClass){

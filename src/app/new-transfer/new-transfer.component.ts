@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from "@angular/core";
 import { TransferClass } from "../model/TransferClass";
+import { TransferService } from "../services/transfer.service";
 
 @Component({
     selector: 'app-new-transfer',
@@ -13,11 +14,16 @@ export class NewTransferComponent{
   amount: number;
   destination: number;
 
+  constructor(private service: TransferService){
+  }
+
   transfer(){
-    console.log("Solicitada nova transferência")
     const valorEmitir = { amount: this.amount, destination: this.destination}
-    this.onClickTransfer.emit(valorEmitir)
-    this.clean()
+    this.service.add(valorEmitir).subscribe(result => {
+      console.log(result)
+      this.clean()
+    },
+    (error) => console.error(error))
   }
 
 
