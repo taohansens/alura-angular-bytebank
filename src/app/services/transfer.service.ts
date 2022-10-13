@@ -18,10 +18,9 @@ export class TransferService {
     return this.listTransfers;
   }
 
-  allTransfers() {
+  allTransfers(): Observable<TransferClass[]> {
     return this.httpClient.get<TransferClass[]>(this.url);
   }
-
 
   add(transfer: TransferClass){
     this.complementWithDate(transfer)

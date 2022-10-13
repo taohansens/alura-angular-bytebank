@@ -8,7 +8,7 @@ import { TransferService } from '../services/transfer.service';
   styleUrls: ['./extract.component.scss']
 })
 export class ExtractComponent implements OnInit {
-  @Input() transfers: any;
+  @Input() transfers: TransferClass[];
 
   constructor(private service: TransferService) { }
 
