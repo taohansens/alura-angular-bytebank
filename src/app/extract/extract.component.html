@@ -1,6 +1,13 @@
-<div *ngFor="let transf of transfers">
-  <p>Valor: {{ transf?.amount }}</p>
-  <p>Destino: {{ transf?.destination }}</p>
-  <p>Data: {{ transf?.data }}</p>
-</div>
-
+<table class="tabela">
+  <thead class="tabela__cabecalho">
+    <th class="tabela__cabecalho__conteudo">Data</th>
+    <th class="tabela__cabecalho__conteudo">Valor</th>
+    <th class="tabela__cabecalho__conteudo">Destino</th>
+  </thead>
+  <tbody>
+    <tr class="tabela__linha" *ngFor="let transf of transfers">
+    <td class="tabela__conteudo">{{transf?.data | date: "short"}}</td>
+    <td class="tabela__conteudo">{{ transf?.amount | currency }}</td>
+    <td class="tabela__conteudo">{{ transf?.destination }}</td>
+  </tbody>
+</table>
