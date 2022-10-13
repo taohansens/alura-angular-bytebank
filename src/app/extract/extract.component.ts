@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TransferClass } from '../model/TransferClass';
+import { TransferService } from '../services/transfer.service';
 
 @Component({
   selector: 'app-extract',
@@ -9,9 +10,9 @@ import { TransferClass } from '../model/TransferClass';
 export class ExtractComponent implements OnInit {
   @Input() transfers: TransferClass[];
 
-  constructor() { }
+  constructor(private service: TransferService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.transfers = this.service.transfers;
   }
-
 }
