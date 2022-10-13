@@ -1,0 +1,22 @@
+header {
+  background-color: var(--primary);
+  padding: 1.5em;
+  display: flex;
+  justify-content: space-between;
+
+  a {
+    color: var(--blue);
+    font-size: 1.3em;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .ativo {
+    display: none;
+  }
+}
+
+main {
+  background-color: #fcfcfc;
+  padding: var(--padding);
+}

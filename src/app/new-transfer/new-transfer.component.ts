@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from "@angular/core";
+import { Router } from "@angular/router";
 import { TransferClass } from "../model/TransferClass";
 import { TransferService } from "../services/transfer.service";
 
@@ -14,14 +15,15 @@ export class NewTransferComponent{
   amount: number;
   destination: number;
 
-  constructor(private service: TransferService){
+  constructor(private service: TransferService, private router: Router){
   }
 
   transfer(){
     const valorEmitir = { amount: this.amount, destination: this.destination}
     this.service.add(valorEmitir).subscribe(result => {
-      console.log(result)
-      this.clean()
+      console.log(result);
+      this.clean();
+      this.router.navigateByUrl('extract')
     },
     (error) => console.error(error))
   }
