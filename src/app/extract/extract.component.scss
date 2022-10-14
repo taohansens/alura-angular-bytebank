@@ -8,12 +8,12 @@
 .tabela {
   text-align: center;
   margin: 0 auto;
-  background-color: var(--blue);
+  background-color: var(#eee);
   border-radius: 10px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 
   &__cabecalho {
-    color: var(--primary);
+    color: var(--blue);
 
     &__conteudo {
       padding: 5px;
@@ -23,7 +23,7 @@
 
   &__linha {
     &:nth-child(even){
-      background-color: #5A6FFF;
+      background-color: #eee;
     }
     &:last-child {
       .tabela__conteudo {
@@ -33,8 +33,13 @@
   }
 
   &__conteudo {
-    color: #fff;
+    color: var(--blue);
     padding: 10px;
-
   }
+}
+
+.empty {
+  color: var(--blue);
+  padding: 10px;
+  font-weight: 600;
 }
